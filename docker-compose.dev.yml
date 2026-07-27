@@ -14,7 +14,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: openwa-api
+    container_name: zapinho-wz-api
     # Container hardening — same posture as production (same Dockerfile/entrypoint).
     security_opt:
       - 'no-new-privileges:true'

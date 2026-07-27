@@ -2,9 +2,9 @@
   <img src="docs/logo/openwa_logo.webp" alt="OpenWA Logo" width="200"/>
 </p>
 
-<h1 align="center">OpenWA</h1>
+<h1 align="center">Zapinho WZ</h1>
 <p align="center">
-  <strong>Open Source WhatsApp API Gateway</strong>
+  <strong>API WhatsApp self-hosted, open source</strong>
 </p>
 
 <p align="center">
@@ -16,14 +16,12 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/rmyndharis/OpenWA/actions/workflows/ci.yml"><img src="https://github.com/rmyndharis/OpenWA/actions/workflows/ci.yml/badge.svg?branch=main" alt="CI"/></a>
-  <img src="https://img.shields.io/github/package-json/v/rmyndharis/OpenWA?label=version&color=blue" alt="Version"/>
   <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License"/>
   <img src="https://img.shields.io/badge/node-22_LTS-brightgreen.svg" alt="Node"/>
-  <img src="https://img.shields.io/github/package-json/dependency-version/rmyndharis/OpenWA/@nestjs/core?label=NestJS&color=red" alt="NestJS"/>
   <img src="https://img.shields.io/badge/docker-ready-blue.svg" alt="Docker"/>
-  <img src="https://img.shields.io/github/package-json/dependency-version/rmyndharis/OpenWA/dev/typescript?label=TypeScript&color=3178C6" alt="TypeScript"/>
 </p>
+
+> **Zapinho WZ** é baseado no projeto open source [OpenWA](https://github.com/rmyndharis/OpenWA) (MIT), com plugins oficiais de [OpenWA-plugins](https://github.com/rmyndharis/OpenWA-plugins) integrados via submódulo em [`plugins-source/`](./plugins-source). Créditos originais: Yudhi Armyndharis e contribuidores do OpenWA — ver [LICENSE](./LICENSE).
 
 ---
 

@@ -1,7 +1,7 @@
 {
-  "name": "openwa",
+  "name": "zapinho-wz",
   "version": "0.10.10",
-  "description": "Open Source WhatsApp API Gateway - Free, Self-Hosted HTTP API for WhatsApp",
+  "description": "Zapinho WZ - API WhatsApp self-hosted, baseada em OpenWA",
   "author": "Yudhi Armyndharis & OpenWA Contributors",
   "private": true,
   "license": "MIT",
