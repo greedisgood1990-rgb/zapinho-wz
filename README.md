@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/logo/openwa_logo.webp" alt="OpenWA Logo" width="200"/>
+  <img src="docs/logo/openwa_logo.webp" alt="Zapinho WZ Logo" width="200"/>
 </p>
 
 <h1 align="center">Zapinho WZ</h1>
@@ -22,6 +22,8 @@
 </p>
 
 > **Zapinho WZ** é baseado no projeto open source [OpenWA](https://github.com/rmyndharis/OpenWA) (MIT), com plugins oficiais de [OpenWA-plugins](https://github.com/rmyndharis/OpenWA-plugins) integrados via submódulo em [`plugins-source/`](./plugins-source). Créditos originais: Yudhi Armyndharis e contribuidores do OpenWA — ver [LICENSE](./LICENSE).
+>
+> Pra empacotar os plugins oficiais em `.zip` prontos pra instalar (upload no dashboard ou via `PLUGINS_DIR`), rode `npm run plugins:build` — gera os pacotes em `plugins-dist/`.
 
 ---
 
