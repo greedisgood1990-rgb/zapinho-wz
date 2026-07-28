@@ -1,0 +1,408 @@
+/* About.css */
+
+.about-page {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding: 6rem 2rem 4rem 2rem;
+  background-color: var(--bg-app);
+  color: var(--text-primary);
+  overflow-x: hidden;
+}
+
+/* Background Glow Spots */
+.about-glow {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(37, 211, 102, 0.05) 0%, transparent 70%);
+  z-index: 0;
+  pointer-events: none;
+  filter: blur(50px);
+}
+
+.about-glow-1 {
+  top: 15%;
+  left: -150px;
+}
+
+.about-glow-2 {
+  bottom: 25%;
+  right: -150px;
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* Hero Section */
+.about-hero {
+  text-align: center;
+  margin-bottom: 4.5rem;
+  padding: 2rem 0;
+}
+
+.about-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 50px;
+  background: rgba(37, 211, 102, 0.08);
+  border: 1px solid rgba(37, 211, 102, 0.2);
+  color: var(--accent-primary);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.about-hero h1 {
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+  letter-spacing: -1px;
+}
+
+.about-hero h1 .highlight {
+  color: var(--accent-primary);
+  background: linear-gradient(120deg, var(--accent-primary), #00af9c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.about-subtitle {
+  max-width: 750px;
+  margin: 0 auto;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+/* Vision Cards Grid */
+.about-vision-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2.5rem;
+  margin-bottom: 5rem;
+}
+
+.vision-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-inverse);
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.vision-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background: rgba(37, 211, 102, 0.08);
+  color: var(--accent-primary);
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(37, 211, 102, 0.15);
+}
+
+.vision-card h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.vision-card p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* Architecture Section */
+.about-architecture {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(11, 15, 25, 0.95) 100%);
+  border: 1px solid var(--border-inverse);
+  border-radius: 20px;
+  padding: 3.5rem;
+  text-align: center;
+  margin-bottom: 5rem;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+.about-architecture h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.section-desc {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 3rem;
+}
+
+.arch-flow-diagram {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.arch-node {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 1.5rem 1.2rem;
+  flex: 1;
+  min-width: 180px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s;
+}
+
+.arch-node:hover {
+  border-color: rgba(37, 211, 102, 0.2);
+}
+
+.arch-icon {
+  margin-bottom: 1rem;
+}
+
+.arch-icon.text-indigo { color: #818cf8; }
+.arch-icon.text-green { color: var(--accent-primary); }
+.arch-icon.text-amber { color: #fbbf24; }
+.arch-icon.text-sky { color: #38bdf8; }
+
+.arch-node h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.arch-node p {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.arch-connector {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.15);
+  user-select: none;
+}
+
+/* Team Section */
+.about-team {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.about-team h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.team-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-inverse);
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.team-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--border-color);
+  box-shadow: 0 15px 35px rgba(37, 211, 102, 0.06);
+}
+
+.team-avatar-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(37, 211, 102, 0.08);
+  border: 1px solid rgba(37, 211, 102, 0.2);
+  color: var(--accent-primary);
+  margin-bottom: 1.5rem;
+}
+
+.team-card:hover .team-avatar-wrapper {
+  background: var(--accent-primary);
+  color: var(--text-inverse);
+}
+
+.team-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.team-role {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 1.2rem;
+}
+
+.team-card p {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Tech Stack Section */
+.about-tech-stack {
+  text-align: center;
+  margin-bottom: 6rem;
+}
+
+.about-tech-stack h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.tech-logos-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.2rem;
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.tech-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: all 0.2s;
+}
+
+.tech-badge svg {
+  color: var(--accent-primary);
+  opacity: 0.8;
+}
+
+.tech-badge:hover {
+  background: rgba(37, 211, 102, 0.06);
+  border-color: rgba(37, 211, 102, 0.2);
+  color: var(--text-primary);
+}
+
+/* About CTA */
+.about-cta {
+  padding: 1rem 0;
+}
+
+.about-cta-box {
+  background: linear-gradient(135deg, rgba(37, 211, 102, 0.08) 0%, rgba(0, 175, 156, 0.03) 100%);
+  border: 1px solid rgba(37, 211, 102, 0.2);
+  border-radius: 20px;
+  padding: 4rem;
+  text-align: center;
+}
+
+.about-cta-box h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.about-cta-box p {
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto 2.5rem auto;
+  font-size: 1.05rem;
+}
+
+.about-cta-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .arch-flow-diagram {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .arch-node {
+    width: 100%;
+  }
+  .arch-connector {
+    transform: rotate(90deg);
+    margin: 0.2rem 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-page {
+    padding-top: 5rem;
+  }
+  .about-hero {
+    margin-bottom: 3.5rem;
+  }
+  .about-vision-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .vision-card {
+    padding: 2rem;
+  }
+  .about-architecture {
+    padding: 2.5rem 1.5rem;
+  }
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .team-card {
+    padding: 2rem 1.5rem;
+  }
+  .about-cta-box {
+    padding: 3rem 1.5rem;
+  }
+  .about-cta-buttons {
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+  .about-cta-buttons a {
+    width: 100%;
+    justify-content: center;
+  }
+}

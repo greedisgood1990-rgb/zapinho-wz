@@ -1,0 +1,226 @@
+/* Navbar.css */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(
+    15,
+    23,
+    42,
+    0.85
+  ); /* Translucent Slate-900 matching the website background */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(37, 211, 102, 0.15);
+  padding: 0.8rem 2rem;
+  transition: all 0.3s ease;
+}
+
+/* Slimmer navbar on the workspace canvas page for maximum screen utilization */
+.navbar.navbar-trial {
+  padding: 0.5rem 1.5rem;
+  background: rgba(
+    11,
+    15,
+    25,
+    0.95
+  ); /* Deep dark background matching the dark workspace */
+  border-bottom: 1px solid rgba(37, 211, 102, 0.1);
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text-primary);
+  font-weight: 700;
+  font-size: 1.3rem;
+  letter-spacing: -0.5px;
+}
+
+.logo-icon {
+  color: var(--accent-primary);
+  filter: drop-shadow(0 0 8px rgba(37, 211, 102, 0.4));
+}
+
+.logo-accent {
+  color: var(--accent-primary);
+}
+
+.mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.navbar-link {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  font-weight: 500;
+  padding: 0.45rem 0.65rem;
+  border-radius: 6px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  white-space: nowrap;
+  border: 1px solid transparent;
+}
+
+.link-icon {
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.navbar-link:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.navbar-link:hover .link-icon {
+  opacity: 1;
+}
+
+.navbar-link.active {
+  color: var(--text-primary);
+  background: rgba(37, 211, 102, 0.08);
+  border-color: rgba(37, 211, 102, 0.25);
+  font-weight: 600;
+}
+
+.navbar-link-highlight {
+  background: transparent;
+  border: 1px solid transparent;
+}
+
+.navbar-link-highlight .link-icon {
+  opacity: 1;
+}
+
+.navbar-link-highlight.active {
+  background: var(--accent-primary);
+  color: var(--text-inverse);
+}
+
+/* Contact button outline style */
+.contact-button {
+  border: 1px solid var(--accent-primary);
+  color: var(--accent-primary);
+}
+
+.contact-button:hover {
+  background: rgba(37, 211, 102, 0.1);
+  color: var(--accent-primary);
+}
+
+.contact-button.active {
+  background: rgba(37, 211, 102, 0.2);
+  color: var(--text-primary);
+}
+
+/* Pulse animation for logo */
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 0.95;
+    color: #4ade80;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 3s infinite ease-in-out;
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+  .mobile-toggle {
+    display: block;
+  }
+
+  .navbar-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(15, 23, 42, 0.98);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(37, 211, 102, 0.2);
+    padding: 1.5rem;
+    gap: 1rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  }
+
+  .navbar-links.active {
+    display: flex;
+  }
+
+  .navbar-link {
+    width: 100%;
+    justify-content: center;
+    padding: 0.8rem;
+  }
+
+  .navbar-link.active::after {
+    display: none;
+  }
+}
+
+/* Tablet viewport adjustments */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .navbar-links {
+    gap: 0.75rem;
+  }
+  .navbar {
+    padding: 0.8rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0.6rem 1rem;
+  }
+  .navbar-links {
+    padding: 1rem;
+  }
+}
+
+/* Mid-size screen / Laptop link scaling */
+@media (max-width: 1200px) and (min-width: 1025px) {
+  .navbar-links {
+    gap: 0.65rem;
+  }
+  .navbar-link {
+    font-size: 0.88rem;
+    padding: 0.4rem 0.55rem;
+  }
+  .nav-glow .btn-glow-inner {
+    padding: 0.4rem 0.6rem;
+  }
+}

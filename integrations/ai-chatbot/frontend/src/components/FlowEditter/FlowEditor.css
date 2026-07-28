@@ -1,0 +1,123 @@
+.flow-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.flow-editor {
+  flex: 1;
+  height: 100%;
+  background: var(--bg-canvas); /* Darker background for the node area */
+  position: relative;
+}
+
+.react-flow__background {
+  background: var(--bg-canvas) !important; /* Ensure background inside ReactFlow is also dark */
+}
+
+/* React Flow Built-in Controls */
+.react-flow__controls {
+  background-color: var(--bg-card) !important;
+  border: 1px solid var(--border-inverse) !important;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
+  border-radius: 8px !important;
+  overflow: hidden;
+}
+
+.react-flow__controls-button {
+  background-color: var(--bg-card) !important;
+  color: var(--text-inverse) !important;
+  border-bottom: 1px solid var(--border-inverse) !important;
+  fill: var(--text-inverse) !important;
+}
+.react-flow__controls-button:hover {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Sidebar Buttons */
+.btn {
+  padding: 10px 24px;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-inverse);
+  color: var(--text-inverse);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn:hover:not(:disabled) {
+  background-color: var(--accent-primary);
+  color: var(--text-primary);
+  border-color: var(--accent-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.flow-continer-navbar {
+  display: flex;
+  justify-content: flex-end;
+  padding: 16px 24px;
+  gap: 12px;
+  background-color: var(--bg-app);
+  border-bottom: 1px solid var(--border-color);
+  position: relative;
+  z-index: 10;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* React Flow MiniMap Theme and Responsiveness */
+.react-flow__minimap {
+  background-color: var(--bg-sidebar) !important;
+  border: 1px solid var(--border-inverse) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
+}
+
+.react-flow__minimap-mask {
+  fill: rgba(0, 0, 0, 0.6) !important;
+}
+
+@media (max-width: 768px) {
+  .flow-container {
+    height: 100% !important;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .flow-editor {
+    flex: 1 !important;
+    min-height: 0 !important;
+    height: 100% !important;
+    width: 100% !important;
+  }
+  .flow-continer-navbar {
+    justify-content: center;
+    padding: 12px;
+    flex-shrink: 0;
+  }
+  .react-flow__minimap {
+    display: block !important;
+    transform: scale(0.65);
+    transform-origin: bottom right;
+    margin: 5px !important;
+  }
+  .react-flow__controls {
+    transform: scale(0.85);
+    transform-origin: bottom left;
+    margin: 5px !important;
+  }
+}
+

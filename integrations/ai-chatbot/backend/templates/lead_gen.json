@@ -1,0 +1,57 @@
+{
+  "key": "lead_gen",
+  "name": "Lead Generation Quiz",
+  "category": "Marketing",
+  "description": "Capture user interests, qualify budgets, and collect email addresses visually.",
+  "nodesCount": 4,
+  "responsesCount": 8,
+  "schema": {
+    "nodes": [
+      {
+        "id": "start-node",
+        "type": "default",
+        "data": { "label": "Trigger Keyword: hello, query, startup" },
+        "position": { "x": 150, "y": 200 }
+      },
+      {
+        "id": "node_1",
+        "type": "custom",
+        "data": {
+          "id": "node_1",
+          "label": "Welcome! What describes your business need?",
+          "responses": ["Software Development", "Marketing Campaign", "Business Consulting"]
+        },
+        "position": { "x": 420, "y": 130 }
+      },
+      {
+        "id": "node_2",
+        "type": "custom",
+        "data": {
+          "id": "node_2",
+          "label": "Great! What is your estimated monthly budget?",
+          "responses": ["Under $2,000", "$2,000 to $10,000", "Above $10,000"]
+        },
+        "position": { "x": 800, "y": 130 }
+      },
+      {
+        "id": "node_3",
+        "type": "custom",
+        "data": {
+          "id": "node_3",
+          "label": "Please enter your email so we can send a custom proposal.",
+          "responses": ["Submit Email", "Go Back"]
+        },
+        "position": { "x": 1180, "y": 200 }
+      }
+    ],
+    "edges": [
+      { "id": "e_start-1", "source": "start-node", "target": "node_1" },
+      { "id": "e_1-2_0", "source": "node_1", "sourceHandle": "response-0", "target": "node_2", "label": "Software Development" },
+      { "id": "e_1-2_1", "source": "node_1", "sourceHandle": "response-1", "target": "node_2", "label": "Marketing Campaign" },
+      { "id": "e_1-2_2", "source": "node_1", "sourceHandle": "response-2", "target": "node_2", "label": "Business Consulting" },
+      { "id": "e_2-3_0", "source": "node_2", "sourceHandle": "response-0", "target": "node_3", "label": "Under $2,000" },
+      { "id": "e_2-3_1", "source": "node_2", "sourceHandle": "response-1", "target": "node_3", "label": "$2,000 to $10,000" },
+      { "id": "e_2-3_2", "source": "node_2", "sourceHandle": "response-2", "target": "node_3", "label": "Above $10,000" }
+    ]
+  }
+}

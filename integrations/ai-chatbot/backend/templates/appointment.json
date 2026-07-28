@@ -1,0 +1,70 @@
+{
+  "key": "appointment",
+  "name": "Doctor Visit Scheduler",
+  "category": "Healthcare",
+  "description": "Book consultation details, select medical departments, slots, and verify naming details.",
+  "nodesCount": 5,
+  "responsesCount": 9,
+  "schema": {
+    "nodes": [
+      {
+        "id": "start-node",
+        "type": "default",
+        "data": { "label": "Trigger Keyword: book, doctor, appointment" },
+        "position": { "x": 100, "y": 200 }
+      },
+      {
+        "id": "node_1",
+        "type": "custom",
+        "data": {
+          "id": "node_1",
+          "label": "Select medical department for your visit:",
+          "responses": ["General Medicine", "Dentistry Clinic", "Pediatrics Care"]
+        },
+        "position": { "x": 380, "y": 130 }
+      },
+      {
+        "id": "node_2",
+        "type": "custom",
+        "data": {
+          "id": "node_2",
+          "label": "Choose your preferred weekday slot:",
+          "responses": ["Monday", "Wednesday", "Friday"]
+        },
+        "position": { "x": 740, "y": 130 }
+      },
+      {
+        "id": "node_3",
+        "type": "custom",
+        "data": {
+          "id": "node_3",
+          "label": "Select slot timing:",
+          "responses": ["Morning (9 - 11 AM)", "Afternoon (2 - 4 PM)", "Evening (5 - 7 PM)"]
+        },
+        "position": { "x": 1100, "y": 130 }
+      },
+      {
+        "id": "node_4",
+        "type": "custom",
+        "data": {
+          "id": "node_4",
+          "label": "Provide patient's full name to confirm booking.",
+          "responses": ["Confirm Booking", "Main Menu"]
+        },
+        "position": { "x": 1460, "y": 200 }
+      }
+    ],
+    "edges": [
+      { "id": "e_start-1", "source": "start-node", "target": "node_1" },
+      { "id": "e_1-2_0", "source": "node_1", "sourceHandle": "response-0", "target": "node_2", "label": "General Medicine" },
+      { "id": "e_1-2_1", "source": "node_1", "sourceHandle": "response-1", "target": "node_2", "label": "Dentistry Clinic" },
+      { "id": "e_1-2_2", "source": "node_1", "sourceHandle": "response-2", "target": "node_2", "label": "Pediatrics Care" },
+      { "id": "e_2-3_0", "source": "node_2", "sourceHandle": "response-0", "target": "node_3", "label": "Monday" },
+      { "id": "e_2-3_1", "source": "node_2", "sourceHandle": "response-1", "target": "node_3", "label": "Wednesday" },
+      { "id": "e_2-3_2", "source": "node_2", "sourceHandle": "response-2", "target": "node_3", "label": "Friday" },
+      { "id": "e_3-4_0", "source": "node_3", "sourceHandle": "response-0", "target": "node_4", "label": "Morning (9 - 11 AM)" },
+      { "id": "e_3-4_1", "source": "node_3", "sourceHandle": "response-1", "target": "node_4", "label": "Afternoon (2 - 4 PM)" },
+      { "id": "e_3-4_2", "source": "node_3", "sourceHandle": "response-2", "target": "node_4", "label": "Evening (5 - 7 PM)" }
+    ]
+  }
+}

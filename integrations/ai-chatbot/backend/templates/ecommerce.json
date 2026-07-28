@@ -1,0 +1,71 @@
+{
+  "key": "ecommerce",
+  "name": "E-Commerce Coffee Order Bot",
+  "category": "Sales & Retail",
+  "description": "Interactive menus for food and beverages. Handle order selections and checkout checks.",
+  "nodesCount": 5,
+  "responsesCount": 10,
+  "schema": {
+    "nodes": [
+      {
+        "id": "start-node",
+        "type": "default",
+        "data": { "label": "Trigger Keyword: menu, buy, coffee, order" },
+        "position": { "x": 100, "y": 220 }
+      },
+      {
+        "id": "node_1",
+        "type": "custom",
+        "data": {
+          "id": "node_1",
+          "label": "☕ Welcome to QuickCafe! Select your drink:",
+          "responses": ["Cappuccino ($3.50)", "Latte ($4.00)", "Espresso ($2.50)", "Cold Brew ($4.50)"]
+        },
+        "position": { "x": 380, "y": 150 }
+      },
+      {
+        "id": "node_2",
+        "type": "custom",
+        "data": {
+          "id": "node_2",
+          "label": "Select cup size:",
+          "responses": ["Regular Size", "Large (+ $1.00)"]
+        },
+        "position": { "x": 760, "y": 100 }
+      },
+      {
+        "id": "node_3",
+        "type": "custom",
+        "data": {
+          "id": "node_3",
+          "label": "Would you like to add sugar or extra milk?",
+          "responses": ["Both Sugar & Milk", "Milk Only", "Sugar Only", "Pure Black"]
+        },
+        "position": { "x": 1120, "y": 150 }
+      },
+      {
+        "id": "node_4",
+        "type": "custom",
+        "data": {
+          "id": "node_4",
+          "label": "Confirm order. Pay at pickup counter?",
+          "responses": ["Confirm Pickup", "Deliver to Table", "Cancel"]
+        },
+        "position": { "x": 1500, "y": 220 }
+      }
+    ],
+    "edges": [
+      { "id": "e_start-1", "source": "start-node", "target": "node_1" },
+      { "id": "e_1-2_0", "source": "node_1", "sourceHandle": "response-0", "target": "node_2", "label": "Cappuccino ($3.50)" },
+      { "id": "e_1-2_1", "source": "node_1", "sourceHandle": "response-1", "target": "node_2", "label": "Latte ($4.00)" },
+      { "id": "e_1-2_2", "source": "node_1", "sourceHandle": "response-2", "target": "node_2", "label": "Espresso ($2.50)" },
+      { "id": "e_1-2_3", "source": "node_1", "sourceHandle": "response-3", "target": "node_2", "label": "Cold Brew ($4.50)" },
+      { "id": "e_2-3_0", "source": "node_2", "sourceHandle": "response-0", "target": "node_3", "label": "Regular Size" },
+      { "id": "e_2-3_1", "source": "node_2", "sourceHandle": "response-1", "target": "node_3", "label": "Large (+ $1.00)" },
+      { "id": "e_3-4_0", "source": "node_3", "sourceHandle": "response-0", "target": "node_4", "label": "Both Sugar & Milk" },
+      { "id": "e_3-4_1", "source": "node_3", "sourceHandle": "response-1", "target": "node_4", "label": "Milk Only" },
+      { "id": "e_3-4_2", "source": "node_3", "sourceHandle": "response-2", "target": "node_4", "label": "Sugar Only" },
+      { "id": "e_3-4_3", "source": "node_3", "sourceHandle": "response-3", "target": "node_4", "label": "Pure Black" }
+    ]
+  }
+}

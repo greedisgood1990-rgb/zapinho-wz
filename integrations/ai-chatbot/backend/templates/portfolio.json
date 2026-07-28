@@ -1,0 +1,67 @@
+{
+  "key": "portfolio",
+  "name": "Developer Portfolio Bot",
+  "category": "Personal & Portfolio",
+  "description": "Showcase projects, resume links, tech stacks, and collect contact details.",
+  "nodesCount": 4,
+  "responsesCount": 7,
+  "schema": {
+    "nodes": [
+      {
+        "id": "start-node",
+        "type": "default",
+        "data": { "label": "Trigger Keyword: portfolio, resume, projects, about" },
+        "position": { "x": 100, "y": 200 }
+      },
+      {
+        "id": "node_1",
+        "type": "custom",
+        "data": {
+          "id": "node_1",
+          "label": "👋 Welcome to my chatbot portfolio! How can I help you?",
+          "responses": ["Explore Projects", "View Tech Stack", "Get in Touch"]
+        },
+        "position": { "x": 380, "y": 140 }
+      },
+      {
+        "id": "node_2",
+        "type": "custom",
+        "data": {
+          "id": "node_2",
+          "label": "Here are my highlighted projects. Select one to learn more:",
+          "responses": ["WhatsAppFlows", "AI Form Engine", "Go Back"]
+        },
+        "position": { "x": 760, "y": 60 }
+      },
+      {
+        "id": "node_3",
+        "type": "custom",
+        "data": {
+          "id": "node_3",
+          "label": "I build fullstack applications using React, Node.js, and Python. Select option:",
+          "responses": ["Experience Timeline", "Go Back"]
+        },
+        "position": { "x": 760, "y": 290 }
+      },
+      {
+        "id": "node_4",
+        "type": "custom",
+        "data": {
+          "id": "node_4",
+          "label": "Reach me via email at hello@developer.com or submit your number:",
+          "responses": ["Submit Phone", "Go Back"]
+        },
+        "position": { "x": 1140, "y": 180 }
+      }
+    ],
+    "edges": [
+      { "id": "e_start-1", "source": "start-node", "target": "node_1" },
+      { "id": "e_1-2_0", "source": "node_1", "sourceHandle": "response-0", "target": "node_2", "label": "Explore Projects" },
+      { "id": "e_1-2_1", "source": "node_1", "sourceHandle": "response-1", "target": "node_2", "label": "View Tech Stack" },
+      { "id": "e_1-2_2", "source": "node_1", "sourceHandle": "response-2", "target": "node_2", "label": "Get in Touch" },
+      { "id": "e_2-4_0", "source": "node_2", "sourceHandle": "response-2", "target": "node_1", "label": "Go Back" },
+      { "id": "e_3-4_0", "source": "node_3", "sourceHandle": "response-1", "target": "node_1", "label": "Go Back" },
+      { "id": "e_4-4_0", "source": "node_4", "sourceHandle": "response-1", "target": "node_1", "label": "Go Back" }
+    ]
+  }
+}
