@@ -1,6 +1,5 @@
 # Dependencies
 node_modules/
-node_modules
 .pnp
 .pnp.js
 
@@ -73,12 +72,13 @@ uploads/
 .remember/
 .agent/
 .claude/
+docs/
 docs/plans/
-docs/superpowers/
 CLAUDE.md
 _docs/
 .superpowers/
-# TypeScript incremental build cache (tsc writes this at repo root under the TS6 build config)
-*.tsbuildinfo
+# Packaged plugins
+*.zip
 
-
+# Download badge output (node scripts/download-badges.mjs)
+.badges-out/
