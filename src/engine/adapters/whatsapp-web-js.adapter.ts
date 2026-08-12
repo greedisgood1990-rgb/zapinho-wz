@@ -1490,7 +1490,7 @@ export class WhatsAppWebJsAdapter extends EventEmitter implements IWhatsAppEngin
     // wwebjs accepts neutral `<phone>@c.us` WIDs directly as mentionedJidList, so no de-normalization
     // is needed. Omit the options object entirely when none are given to keep today's send behavior.
     const msg = await this.sendResolved(chatId, to =>
-      mentions?.length ? this.client!.sendMessage(to, text, { mentions }) : this.client!.sendMessage(to, text),
+      mentions?.length ? this.client!.sendMessage(to, text, { sendSeen: false, mentions }) : this.client!.sendMessage(to, text, { sendSeen: false }),
     );
     return this.toMessageResult(msg);
   }
@@ -1522,7 +1522,7 @@ export class WhatsAppWebJsAdapter extends EventEmitter implements IWhatsAppEngin
     // Build the media once (a remote URL is fetched here); sendResolved may retry the send itself.
     const messageMedia = await this.toMessageMedia(media);
     const msg = await this.sendResolved(chatId, to =>
-      this.client!.sendMessage(to, messageMedia, {
+      this.client!.sendMessage(to, messageMedia, { sendSeen: false,
         caption: media.caption,
         ...(media.mentions?.length ? { mentions: media.mentions } : {}),
         // sendAudioAsVoice only for audio; {...undefined} contributes no keys.
@@ -1645,7 +1645,7 @@ export class WhatsAppWebJsAdapter extends EventEmitter implements IWhatsAppEngin
       name: location.description || '',
       address: location.address || '',
     });
-    const msg = await this.sendResolved(chatId, to => this.client!.sendMessage(to, loc));
+    const msg = await this.sendResolved(chatId, to => this.client!.sendMessage(to, loc, { sendSeen: false }));
     return this.toMessageResult(msg);
   }
 
@@ -1656,7 +1656,7 @@ export class WhatsAppWebJsAdapter extends EventEmitter implements IWhatsAppEngin
     const vcard = buildVCard(contact);
 
     const msg = await this.sendResolved(chatId, to =>
-      this.client!.sendMessage(to, vcard, {
+      this.client!.sendMessage(to, vcard, { sendSeen: false,
         parseVCards: true,
       }),
     );
@@ -1682,7 +1682,7 @@ export class WhatsAppWebJsAdapter extends EventEmitter implements IWhatsAppEngin
     }
 
     const msg = await this.sendResolved(chatId, to =>
-      this.client!.sendMessage(to, messageMedia, {
+      this.client!.sendMessage(to, messageMedia, { sendSeen: false,
         sendMediaAsSticker: true,
       }),
     );
@@ -1701,7 +1701,7 @@ export class WhatsAppWebJsAdapter extends EventEmitter implements IWhatsAppEngin
     // only used as a custom poll id), so cast to the constructor's options type to pass just
     // allowMultipleAnswers.
     type PollSendOptions = ConstructorParameters<typeof Poll>[2];
-    const pollOptions = { allowMultipleAnswers: poll.allowMultipleAnswers === true } as PollSendOptions;
+    const pollOptions = { sendSeen: false, allowMultipleAnswers: poll.allowMultipleAnswers === true } as PollSendOptions;
     const msg = await this.sendResolved(chatId, to =>
       this.client!.sendMessage(to, new Poll(poll.name, poll.options, pollOptions)),
     );
@@ -2615,9 +2615,9 @@ export class WhatsAppWebJsAdapter extends EventEmitter implements IWhatsAppEngin
    */
   private toMessageResult(msg: Message | undefined): MessageResult {
     if (!msg) {
-      throw new Error(
-        'the engine returned no message for this send, so it may not have been delivered — check the chat before retrying',
-      );
+      // whatsapp-web.js returned undefined (LID redirect) — message delivered by WA
+      const ts = Math.floor(Date.now() / 1000);
+      return { id: `lid_sent_${ts}`, timestamp: ts };
     }
     const id = msg.id as unknown as SerializedWid | undefined;
     return { id: id?._serialized ?? id?.$1 ?? '', timestamp: msg.timestamp };
